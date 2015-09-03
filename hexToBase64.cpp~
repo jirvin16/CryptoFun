@@ -1,0 +1,29 @@
+#include <iostream>       // std::cout
+#include <string>         // std::string
+#include <cmath>
+
+using namespace std;
+
+int from_hex_to_decimal(char hex) {//single hex char converter
+  if('0'<= hex && hex <='9') return hex-'0';
+  else if (hex >= 'A' && hex <= 'Z') {
+    return hex - 'A'  + 10;
+  }
+  else return hex - 'a' + 10;
+}
+
+int from_decimal_to_base64(int dec) {
+  return 1;  
+}
+
+int main () {
+  //char hex[97] = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+  string hex = "1E";
+  int dec=0;
+  int i;
+  for(i=0;i<hex.length();i++) {
+    dec+=pow(16,i)*from_hex_to_decimal(hex[hex.length()-1-i]);
+  }
+  cout << dec << endl;
+  return 0;
+}
